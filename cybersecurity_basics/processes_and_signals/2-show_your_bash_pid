@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script displays the PID of all processes containing the word 'bash'
+# It uses pgrep which is more efficient than ps | grep
+pgrep -f bash
