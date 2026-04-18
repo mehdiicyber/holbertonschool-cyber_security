@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Management script for manage_my_process
+
+ACTION=$1
+PID_FILE="/tmp/my_process.pid"
+DAEMON="./manage_my_process"
+
+case "$ACTION" in
+    start)
+        # Start the script in the background
+        "$DAEMON" &
+        # Save the PID of the process we just started ($!)
+        echo $! > "$PID_FILE"
+        echo "manage_my_process started"
+        ;;
+    stop)
+        # Kill the process using the PID stored in the file
+        kill "$(cat "$PID_FILE")"
+        rm "$PID_FILE"
+        echo "manage_my_process stopped"
+        ;;
+    restart)
+        # Stop existing process
+        kill "$(cat "$PID_FILE")"
+        rm "$PID_FILE"
+        # Start new process
+        "$DAEMON" &
+        echo $! > "$PID_FILE"
+        echo "manage_my_process restarted"
+        ;;
+    *)
+        echo "Usage: manage_my_process {start|stop|restart}"
+        ;;
+esac
