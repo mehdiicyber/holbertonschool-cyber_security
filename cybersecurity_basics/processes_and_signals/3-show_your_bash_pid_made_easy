@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script lists PIDs and names of processes containing 'bash'
+# without using the ps command
+pgrep -fl bash | awk '{print $1, $2}'
