@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script manages PID files and handles multiple signals uniquely
+
+# Write the PID to a temporary file
+echo $$ > /tmp/myscript.pid
+
+# Trap for SIGINT (Ctrl+C) - Just print message
+trap "echo 'Y U no love me?!'" SIGINT
+
+# Trap for SIGTERM - Print message, cleanup, and exit
+trap "echo 'I hate the kill command'; rm /tmp/myscript.pid; exit" SIGTERM
+
+# Trap for SIGQUIT - Cleanup and exit (standard behavior for SIGQUIT)
+trap "rm /tmp/myscript.pid; exit" SIGQUIT
+
+# Infinite loop
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
