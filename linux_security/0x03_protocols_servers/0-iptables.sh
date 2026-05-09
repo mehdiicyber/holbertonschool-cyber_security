@@ -1,2 +1,4 @@
 #!/bin/bash
-iptables -L -n --line-numbers
+# Displays all current iptables rules with line numbers and verbose output
+
+iptables -L -n -v --line-numbers
