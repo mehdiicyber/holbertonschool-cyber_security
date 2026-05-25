@@ -1,2 +1,2 @@
 #!/bin/bash
-last -5 | awk 'NF'
+last -n 5 | awk 'NF'
