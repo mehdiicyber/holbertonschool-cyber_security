@@ -1,3 +1,2 @@
 #!/bin/bash
-[ "$EUID" -ne 0 ] && { echo "Xəta: root və ya sudo tələb olunur!"; exit 1; }
-last -5
+[ "$EUID" -eq 0 ] && last -5 || { echo "Sudo teleb olunur!"; exit 1; }
