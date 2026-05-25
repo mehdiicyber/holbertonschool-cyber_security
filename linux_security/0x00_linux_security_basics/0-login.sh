@@ -1,2 +1,2 @@
 #!/bin/bash
-last -n 5 | awk 'NF'
+last -n 10 | grep -v "reboot" | head -n 5
