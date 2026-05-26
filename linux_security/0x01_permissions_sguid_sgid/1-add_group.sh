@@ -1,4 +1,4 @@
 #!/bin/bash
 groupadd "$1"
-chgrp "$1" "$2"
-chmod 674 "$2"
+chown :"$1" "$2"
+chmod g+x,g+r "$2"
