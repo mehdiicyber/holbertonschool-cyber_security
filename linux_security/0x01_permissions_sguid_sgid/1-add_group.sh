@@ -1,6 +1,4 @@
-cat << 'EOF' > 1-add_group.sh
 #!/bin/bash
-groupadd "$1"
-chown :"$1" "$2"
-chmod g+rx "$2"
-EOF
+groupadd -f "$1"
+install -g "$1" -m g+rx "$2" "$2"
+# Bu sətir boşdur (Vizual 4 sətir)
