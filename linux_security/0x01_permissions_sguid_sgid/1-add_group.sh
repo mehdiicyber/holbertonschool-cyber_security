@@ -1,4 +1,4 @@
 #!/bin/bash
-groupadd -f "$1" || true
-chown :"$1" "$2" || true
-chmod g+rx "$2"
+sudo groupadd -f "$1"
+sudo chown :"$1" "$2"
+sudo chmod g+rx "$2"
