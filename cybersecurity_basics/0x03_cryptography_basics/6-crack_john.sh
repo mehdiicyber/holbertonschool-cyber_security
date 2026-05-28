@@ -1,2 +1,2 @@
 #!/bin/bash
-john --show --format=Raw-SHA256 "$1" | cut -d: -f2 | head -1 > 6-password.txt
+john --format=Raw-SHA256 --wordlist=/usr/share/john/password.lst "$1" && john --show --format=Raw-SHA256 "$1" | awk -F: 'NR==1{print $2}' > 6-password.txt
