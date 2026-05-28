@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -n "$1" | md5sum | awk '{print $1}' > 3_hash.txt
+echo -n "$1" | sha512sum | awk '{print $1}' > 3_hash.txt
