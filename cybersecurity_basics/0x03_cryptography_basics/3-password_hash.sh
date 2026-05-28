@@ -1,2 +1,2 @@
 #!/bin/bash
-echo -n "$1" | sha512sum | awk '{print $1}' > 3_hash.txt
+echo -n "$1" | openssl dgst -sha512 | awk '{print $2}' > 4_hash.txt
