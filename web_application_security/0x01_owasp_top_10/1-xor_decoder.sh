@@ -7,7 +7,7 @@ fi
 
 encoded_str="${1#\{xor\}}"
 
-hex_bytes=$(echo -n "$encoded_str" | base64 -d 2>/dev/null | xxd -p | tr -d '\n')
+hex_bytes=$(echo -n "$encoded_str" | base64 -d 2>/dev/null | od -An -v -tx1 | tr -d ' \n')
 
 if [ -z "$hex_bytes" ]; then
     echo "Xəta: Doğru Base64 formatı deyil."
