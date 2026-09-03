@@ -1,2 +1,4 @@
 #!/bin/bash
-grep -i "Linux version" dmesg
+# 1-operating.sh - Extracts the OS kernel version from dmesg log
+
+grep "Linux version" dmesg
