@@ -1,8 +1,8 @@
 #!/bin/bash
 # 3-ips.sh
 # Count the number of distinct attacker IP addresses that gained access
-# (successful requests, HTTP status 200) to the system.
+# (successful authentication) to the system, based on auth.log.
 
-LOGFILE="web_access.log"
+LOGFILE="auth.log"
 
-awk '$9 == 200 {print $1}' "$LOGFILE" | sort -u | wc -l
+grep "Accepted" "$LOGFILE" | awk '{for(i=1;i<=NF;i++) if ($i=="from") print $(i+1)}' | sort -u | wc -l
