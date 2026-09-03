@@ -1,11 +1,8 @@
-3. Sum Attack
-Consider each unique IP address as representing a different attacker. How many distinct attackers gained access to the system
+#!/bin/bash
+# 3-ips.sh
+# Count the number of distinct attacker IP addresses that gained access
+# (successful requests, HTTP status 200) to the system.
 
-┌──(imen㉿hbtn-lab)-[…/web_application_security/0x0c_web_application_foresics]
-└─$ ./3-ips.sh 
-18
-Repo:
+LOGFILE="web_access.log"
 
-GitHub repository: holbertonschool-cyber_security
-Directory: web_application_security/0x0c_web_application_foresics
-File: 3-ips.sh
+awk '$9 == 200 {print $1}' "$LOGFILE" | sort -u | wc -l
