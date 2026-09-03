@@ -7,4 +7,4 @@ if [ ! -f "$LOG_FILE" ]; then
     LOG_FILE="/var/log/auth.log"
 fi
 
-tail -n 1000 "$LOG_FILE" | grep "Accepted" | awk '{print $9}' | sort | uniq
+tail -n 1000 "$LOG_FILE" | grep "Accepted" | awk '{print $5}' | sort | uniq
