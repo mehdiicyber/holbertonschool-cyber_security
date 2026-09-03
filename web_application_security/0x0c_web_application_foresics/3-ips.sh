@@ -1,2 +1,2 @@
 #!/bin/bash
-grep "Accepted" "${1:-auth.log}" | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" | sort -u | wc -l
+grep "Accepted" auth.log | grep -oE "([0-9]{1,3}\.){3}[0-9]{1,3}" | sort -u | wc -l | tr -d ' '
