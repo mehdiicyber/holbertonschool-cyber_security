@@ -4,7 +4,7 @@
 # Counts how many firewall rules have been added,
 # based on entries in auth.log.
 
-LOGFILE="/var/log/auth.log"
+LOGFILE="auth.log"
 
 # Look for sudo/root commands that used iptables or ufw to ADD a rule.
 # -A (append) / -I (insert) for iptables, and "ufw allow"/"ufw deny"/"ufw insert" for ufw.
