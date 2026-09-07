@@ -1,1 +1,1 @@
-echo "ead419cf8dea57c9670680e10e28f35d" > 100-flag.txt
+ead419cf8dea57c9670680e10e28f35d
